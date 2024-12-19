@@ -59,7 +59,21 @@ feature4 = st.sidebar.number_input("Total_Ct_Chng_Q4_Q1", min_value=0.0, step=10
 feature5 = st.sidebar.number_input("Avg_Utilization_Ratio", min_value=0.0, step=1.0)
 feature6 = st.sidebar.number_input("Total_Relationship_Count", min_value=0.0, step=1.0)
 feature7 = st.sidebar.number_input("Months_Inactive_12_mon", min_value=1.0, step=1.0)
-feature8 = st.sidebar.number_input("Total_Amt_Chng_Q4_Q1", min_value=10.0, step=100.0)
+feature8 = st.sidebar.number_input("Customer_Age", min_value=18.0, step=1.0)
+feature9 = st.sidebar.number_input("Avg_Open_To_Buy", min_value=10.0, step=100.0)
+feature10 = st.sidebar.number_input("Credit_Limit", min_value=10.0, step=1.0)
+feature11 = st.sidebar.number_input("Months_on_book", min_value=1.0, step=1.0)
+feature12 = st.sidebar.number_input("Dependent_count", min_value=1.0, step=1.0)
+feature13 = st.sidebar.selectbox("Education_Level(0='Uneducated', 1='High School', 2='College', 3='Graduate', 4='Post-Graduate', 5='Doctorate')", [0,1,2,3,4,5])
+feature14 = st.sidebar.selectbox("Income_Category (0='Less than $40K', 1='$40K - $60K', 2='$60K - $80K', 3='$80K - $120K', 4='$120K +')", [0,1,2,3,4])
+feature15 = st.sidebar.selectbox("Marital_Status (0=Married, 1=Single, 2=Divorced)", [0,1,2])
+feature16 = st.sidebar.selectbox("Gender (0=Male, 1=Female)", [0,1])
+feature17 = st.sidebar.selectbox("Card_Category(0=Blue, 1=Silver, 2=Gold, 3=Platinum)", [0,1,2,3])
+feature18 = st.sidebar.number_input("Naive_Bayes_Classifier_Attrition_Flag_Card_Category_Contacts_Count_12_mon_Dependent_count_Education_Level_Months_Inactive_12_mon_1",
+min_value = 0.0, step = 0.01)
+feature19 = st.sidebar.number_input("Naive_Bayes_Classifier_Attrition_Flag_Card_Category_Contacts_Count_12_mon_Dependent_count_Education_Level_Months_Inactive_12_mon_2",
+min_value = 0.0, step = 0.01)
+
 
 
 
@@ -70,7 +84,8 @@ target_names = {0: "Existing Customer", 1: "Attrited Customer",}
 if st.button("Predict"):
     try:
         # Prepare the input as a 2D array
-        inputs = np.array([[feature1, feature2, feature3, feature4, feature5, feature6, feature7, feature8]])
+        inputs = np.array([[feature1, feature2, feature3, feature4, feature5, feature6, feature7, feature8,
+        feature9,feature10,feature11,feature12,feature13,feature14,feature15,feature16,feature17,feature18,feature19]])
 
         # Make prediction
         prediction = loaded_model.predict(inputs)
